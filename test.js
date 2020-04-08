@@ -10,8 +10,6 @@
 // console.log(answer); получаем введенные данные в виде строки
 
 
-// console.log('куку');
-
 // let num = 50;
 
 // if (num <49) {
@@ -66,5 +64,82 @@
 //     return (a + b); 
 // }
 
-// let calc = (a,c) => {a+c};
-// console.log(calc(5,5));
+// друнрй формат записи функции
+// let summ = (a,b) => a + b ;
+// console.log(summ(5,6));
+
+// массивы
+
+
+// let options = {
+//         width: 1024,
+//         height: 2014,
+//         name: "test" 
+// };
+
+// options.bool = false;
+// options.colors ={
+//         border: "black",
+//         bg: "red"
+// };
+
+// удалять элемент из массива
+// delete options.bool;  
+
+// for (let key in options) {
+//         console.log("Свойство " + key + " имеет значение " + options[key]);
+// }
+
+// console.log(Object.keys(options).length);
+
+
+
+
+// массивы
+
+// let arr = [1, "two", 3, "four", 5];
+
+// arr.pop(); //удаление последнего элемента
+// arr.push("5"); // добавить элетент в канец массива
+// arr.shift(); //удаление первого элемента
+// arr.unshift("1");  // добавить элетент в нчало массива
+
+// for (let i = 0; i < arr.length; i++) {
+//         console.log(arr[i]);
+// }
+
+// arr.forEach(function(item, i, mass) {
+//         console.log(i + ": " + item + " (массив: " + mass + ")");
+// });
+
+// let mass = [1, "two", 3, "four", 5, 6];
+
+// выводит ключи массива
+// for (let key in mass) {
+//         console.log(key);
+// }
+
+// выводит значения массива
+// for (let key of mass) {
+//         console.log(key);
+// }
+
+
+
+// /******************************************* */
+
+// let ans = prompt("", ""),
+//     arrMass = [];
+
+// arrMass = ans.split(",");
+// console.log(arrMass);
+
+
+let arr = [1,15,4],
+i = arr.sort(compareNum);
+
+function compareNum(a,b) {
+        return a-b;
+}
+
+console.log(arr);
