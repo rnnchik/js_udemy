@@ -1,70 +1,93 @@
-// 1
-// alert("Hello world");     модалка в браузере
-
-// 2
-// let answer = confirm("Are you here?"); модалка с 2 вариантпми ответа
-// console.log(answer); получаем булевое значение;
-
-// 3
-// let answer = prompt("Есть ли Вам 18?", "Да"); модалка с полем ввода для ответа
-// console.log(answer); получаем введенные данные в виде строки
+'use strict';
 
 
-// console.log('куку');
+let money = +prompt ("Ваш бюджет на месяц?", ""),
+    time = prompt ("Введите дату в формате YYYY-MM-DD", "");
+    
+let appData = {
+    budget: money,
+    timeData: time,
+    expenses: {},
+    optionalExpenses: {},
+    income: [],
+    savings: false
+};
 
-// let num = 50;
 
-// if (num <49) {
-//     console.log("Неверно!");
-// } else if (num > 100){
-//     console.log('Много!');
-// } else {
-//     console.log('Верно');
-// }
+for (let i = 0; i < 2; i++) {
+    let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
+        b = prompt ("Во сколько обойдется?", "");
 
-// switch (num) {
-//     case num < 49:
-//         console.log("Неверно!");
-//         break;
-//     case num > 100:
-//         console.log("Много!");
-//         break;
-//     case num > 80:
-//         console.log("Все еще много!");
-//         break;
-//     case 50:
-//         console.log("Верно!");
-//         break;
-//     default:
-//         console.log("Что то не так!");
-//         break;
-// }
-        // циклы
-// do {
-//     console.log(num);
-//     num++;
-// } while (num < 55);
+    if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
+
+        console.log ("done");
+
+        appData.expenses[a] = b;
+    } else {                            
+        console.log ("bad result");
+        i--;
+    }
+
+}
 
 
 
-// for (let i =1; i < 8; i++) {
-//     if (i == 5) {
-//         continue; //пропустить шаг цикла
+// Используем цикл WHILE
+
+// let i = 0;
+// while (i < 2) {
+//     let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
+//         b = prompt ("Во сколько обойдется?", "");
+
+//     if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
+
+//         console.log ("done");
+
+//         appData.expenses[a] = b;
+//     } else {
+//          console.log ("bad result");
+//          i--;
 //     }
-//     console.log(i);
+
+//     i++;
 // }
 
 
-        // Функции
-// function showRirstMessage (text) {  // фанкшин дэкорешен функция в потоке кода (создаются до начала кода, можно использовать до их объявления)
-//     console.log(text);
+
+// Используем цикл DO...WHILE
+
+// let i = 0;
+// do {
+//     let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
+//         b = prompt ("Во сколько обойдется?", "");
+
+//     if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
+
+//         console.log ("done");
+
+//         appData.expenses[a] = b;
+//     } else {
+//          console.log ("bad result");
+//          i--;
+//     }
+
+//     i++;
 // }
+// while(i < 2);
 
-// showRirstMessage('Вася');
 
-// let calc = function(a, b) { // фанкшин экспрешен функция создаётся только когда до нее доходит код
-//     return (a + b); 
-// }
+appData.moneyPerDay = appData.budget / 30;
 
-// let calc = (a,c) => {a+c};
-// console.log(calc(5,5));
+
+alert ("Бюджет на 1 день составляет " + appData.moneyPerDay + "руб.");
+
+
+if (appData.moneyPerDay < 100) {
+    console.log ("Это минимальный уровень достатка!");
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+    console.log ("Это средний уровень достатка!");
+} else if (appData.moneyPerDay > 2000) {
+    console.log ("Это высокий уровень достатка!");
+} else {
+    console.log ("Произошла ошибка");
+}
