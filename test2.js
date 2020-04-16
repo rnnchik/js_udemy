@@ -1,11 +1,14 @@
 let box = document.getElementById('box'),
-    btn = document.getElementsByTagName('button'),
+    // btn = document.getElementsByTagName('button'),
     circle = document.getElementsByClassName('circle'),
     heart = document.querySelectorAll('body .heart'),
     oneHeart = document.querySelector('.heart'), //первый жэлемент с этим классом. только первый!
-    wrapper = document.querySelector('.wrapper');
+    wrapper = document.querySelector('.wrapper'),
+    btn = document.querySelectorAll('button'),
+    block = document.querySelector('block');
 
 
+    btn[2].style.fontSize = '20px';
 // console.log(box);
 // console.log(btn);
 // console.log(btn[0]);
@@ -18,6 +21,7 @@ let box = document.getElementById('box'),
 circle[0].style.backgroundColor = 'red';
 circle[1].style.backgroundColor = 'yellow';
 circle[2].style.backgroundColor = 'green';
+
 
 // for (let i = 0; i < heart.length; i++) {
 //     heart[i].style.backgroundColor = 'blue';
@@ -43,3 +47,26 @@ wrapper.removeChild(heart[1]);
 document.body.replaceChild(btn[1], circle[1]); //заменить элемент второй первым
 
 // console.log(div);
+
+
+// btn[0].onclick = function() {
+//     alert('Вы кликнкли первую кнопку');
+// };
+// btn[0].addEventListener('mouseenter', function() {
+//     alert('Вы навели на кнопку');
+// });
+
+btn[0].addEventListener('click', function(event) {
+    event.preventDefault();
+    let target = event.target;
+    target.style.display = 'none';
+    // alert('Вы нажали первую кнопку!');
+    console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);
+});
+
+btn.forEach(function(item) {
+    item.addEventListener('mouseleave', function() {
+        console.log('вышли');
+    })
+});
+
